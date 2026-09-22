@@ -1,6 +1,6 @@
 package com.example.day1;
 
-public class KuKuHyou {
+public class multiplication {
     public static void main(String[] args) {
     System.out.println("      ");
     for (int j = 1; j <= 9; j++) {
