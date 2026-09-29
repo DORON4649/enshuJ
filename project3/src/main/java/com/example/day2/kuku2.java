@@ -10,14 +10,15 @@ public class kuku2 {
             y++;
         }
     }
-    public static void sub(int y) {
+    public static void sub(int z) {
         int x;
         for(x = 1; x < 10; x++) {
-            if(x * y <10){
-                System.out.println(" " + x * y + " ");
+            if(x * z <10){
+                System.out.print(" " + x * z + " ");
             } else {
-                System.out.println(x * y + " ");
+                System.out.print(x * z + " ");
             }
         }
+        z = 0;
     }
 }
