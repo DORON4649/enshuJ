@@ -2,40 +2,38 @@ package com.example.day4;
 
 public class SetGradeSample {
     public static void main(String[] args) {
-        CitStudent kodai = new CitStudent();
-        kodai.no = "25G3999";
-        kodai.name = "工大 太郎";
-        kodai.year = 2;
-        kodai.grade = 80;
+    CitStudent2 kodai = new CitStudent2("25G3999", "工大 太郎");
 
-        kodai.department = Integer.parseInt("" + kodai.no.charAt(3));
-        showGrade(kodai);
-    }
+    kodai.setYear(2);
+    kodai.setGrade(80);
+    kodai.setDepartment(Integer.parseInt("" + kodai.getNo().charAt(3)));
 
-    public static void showGrade(CitStudent data) {
+    showGrade(kodai);
+}
+    public static void showGrade(CitStudent2 data) {
         String deptName = " ";
-        if (data.department == 1) {
+        if (data.getDepartment() == 1) {
             deptName = "情報工学科";
-        }else if (data.department == 2) {
+        }else if (data.getDepartment() == 2) {
             deptName = "情報ネットワーク学科";
-        } else if (data.department == 3) {
+        } else if (data.getDepartment() == 3) {
             deptName ="高度情報工学科";
         }
 
         String eval = "";
-        if (data.grade >= 90) {
+        if (data.getGrade() >= 90) {
             eval = "S";
-        } else if (data.grade >=80) {
+        } else if (data.getGrade() >=80) {
             eval = "A";
-        } else if ( data.grade >=70) {
+        } else if ( data.getGrade() >=70) {
             eval = "B";
-        } else if (data.grade >= 60) {
+        } else if (data.getGrade() >= 60) {
             eval = "C";
         } else {
             eval = "D";
         }
 
-        System.out.println("No: " + data.no + " " + data.name + " " + data.grade + " " + deptName);
+        System.out.println("No: " + data.getNo() + " " + data.getName() + " " + deptName + " " + data.getGrade() + " " + eval);
     }
 
     
