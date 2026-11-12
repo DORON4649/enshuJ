@@ -2,6 +2,7 @@
 \usepackage{graphicx}
 \usepackage{luatexja-fontspec}
 \usepackage{listings}
+\usepackage[margin=2.5cm]{geometry}
 \lstset{
   basicstyle=\ttfamily,
   frame=single,
@@ -10,29 +11,44 @@
 }
 
 \begin{document}
+
+\noindent
 科目名：ネットワークプログラミング応用演習\\
-学生番号：23G3076
-氏名：須田侑磨
+学生番号：＊＊＊＊＊\\
+氏名：****
+
+\vspace{2em}
 
 \section{目的}
-第7週目の課題を終え、実際に動かしてみると、マウスをクリックするたびに円が描画された。\\
-この際、円を削除するすべが\begin{lstlisting}[language=Java]
-  int maxObjects = 100;
-\end{lstlisting}\\
-円の個数がmax
+本課題の基本仕様では、描画オブジェクトの管理上限(maxObject)を超過した際に、古い順から自動的に削除される仕組みとなっていた。
+
+しかし、この仕様では、「直前に間違えて描画したオブジェクトだけを消す」といった操作ができず、不要な図形を消すために上限までダミーの図形を描き続けなければならないという操作上の課題があった。
+
+そこで、本レポートでは、実用的な描画ソフトとして動作させるため、任意の図形を直接選択し、個別に削除できる機能を拡張することにした。
+
 \section{課題}
-これはTEST2
+前章の目的を達成するため、指定された必須課題に加え、以下の機能を実装した。
+\begin{itemize}
+    \item \textbf{描画オブジェクトの選択機能} \\
+        キャンバス上に描画された図形をクリックもしくはドラッグすることで、対象の図形を選択状態にする機能。
+    \item \textbf{選択図形の個別削除機能} \\
+        選択された特定の図形データのみを、リストから除外し、再描画する機能。
+    \item \textbf{ツール切り替えGUI} \\
+        描画モードと選択・削除モードなどを切り替えるためのUIの配置。
+    \item \textbf{Undo機能} \\
+        直前に行った操作を取り消す機能。
+\end{itemize}
+
 \section{理論}
-これはTEST3
+
 \section{プログラム(ソースコード)}
-これはTEST4
+
 \section{動作確認方法}
-これはTEST5
+
 \section{実行結果}
-これはTEST6
+
 \section{まとめ}
-これはTEST7
+
 \section{感想}
-これはTEST8
 
 \end{document}
