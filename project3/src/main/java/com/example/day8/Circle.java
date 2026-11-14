@@ -15,7 +15,7 @@ public class Circle extends Figure {
         g.setPaint(color);
         g.fill(f);
         
-        // 範囲選択されていたら赤い枠線を描画する
+        // 範囲選択-赤枠表示(Object)
         if (isSelected) {
             g.setPaint(Color.RED);
             g.setStroke(new BasicStroke(2.0f));
@@ -24,7 +24,7 @@ public class Circle extends Figure {
     }
 
     @Override public boolean contains(double px, double py) {
-        // マウスの座標が、この円の中に入っているかを返す
+        // 範囲選択の座標チェック
         Ellipse2D f = new Ellipse2D.Double(x - size/2, y - size/2, size, size);
         return f.contains(px, py);
     }

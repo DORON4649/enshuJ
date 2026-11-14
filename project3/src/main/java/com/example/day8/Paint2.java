@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 public class Paint2 extends JFrame {
     public static void main(String[] args) {
-        int maxObjects = 99999;
+        int maxObjects = 9999;
         if (args.length > 0) {
             try { maxObjects = Integer.parseInt(args[0]); } 
             catch (NumberFormatException e) {}
@@ -15,24 +15,24 @@ public class Paint2 extends JFrame {
         Paint2 p = new Paint2();
         p.setTitle("ペイントツールもどき");
 
-        // === ☆追加: 個数を表示するラベルの作成 ===
         JLabel countLabel = new JLabel("図形の数: 0 / " + maxObjects + "  ");
-        countLabel.setFont(new Font("SansSerif", Font.BOLD, 14)); // 少し文字を太く見やすく
+        countLabel.setFont(new Font("SansSerif", Font.BOLD, 14));
 
-        // キャンバスにラベルを渡して、描画時に更新できるようにする
         PaintCanvas canvas = new PaintCanvas(maxObjects, countLabel);
 
-        // === ツールバーの構築 ===
-        JPanel topPanel = new JPanel(new BorderLayout()); // 上部全体のパネル
-        JPanel toolPanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); // ボタンを左詰めに並べるパネル
+        // === ツールバー ===
+        JPanel topPanel = new JPanel(new BorderLayout());
+        JPanel toolPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         
         JButton btnCircle = new JButton("円");
         JButton btnRect = new JButton("四角");
         JButton btnEraser = new JButton("消しゴム");
+        //削除予定↓
         JButton btnBucket = new JButton("バケツ");
         JButton btnSelect = new JButton("範囲選択");
         JButton btnUndo = new JButton("Undo");
         JButton btnDelete = new JButton("選択削除");
+        //削除予定↓
         JButton btnExport = new JButton("保存");
 
         btnCircle.addActionListener(e -> canvas.setTool(0));
@@ -53,7 +53,7 @@ public class Paint2 extends JFrame {
         toolPanel.add(btnDelete);
         toolPanel.add(btnExport);
         
-        // 左側にボタン群、右側に個数ラベルを配置
+        // 左：ボタン、右：Object Counter
         topPanel.add(toolPanel, BorderLayout.WEST);
         topPanel.add(countLabel, BorderLayout.EAST);
         
